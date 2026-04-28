@@ -1,0 +1,376 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--n8-blue:#223382;--n8-blue-sec:#9BACD8;--n8-navy:#111144;
+--n8-orange:#F98513;--n8-canvas:#F4F1EC;--n8-alt:#DAD1C8;
+--n8-body:#2D2E37;--n8-white:#FFFFFF;
+}
+body{font-family:'Open Sans',sans-serif;background:var(--n8-canvas);color:var(--n8-body);font-size:14px;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding-bottom:4rem}
+
+.cover{background:var(--n8-navy);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
+.cover-geo{position:absolute;right:-40px;top:-40px;width:220px;height:220px;border:40px solid rgba(34,51,130,0.4);border-radius:50%;pointer-events:none}
+.cover-geo2{position:absolute;right:60px;bottom:-60px;width:140px;height:140px;border:28px solid rgba(155,172,216,0.15);border-radius:50%;pointer-events:none}
+.cover-eyebrow{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--n8-blue-sec);margin-bottom:0.75rem;font-weight:600}
+.cover-title{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:0.6rem}
+.cover-sub{font-size:13px;color:var(--n8-blue-sec);max-width:380px;line-height:1.6}
+.cover-rule{width:40px;height:3px;background:var(--n8-orange);margin:1.25rem 0 0}
+
+/* NAV — light background, dark high-contrast text */
+.nav{display:flex;background:var(--n8-alt);overflow-x:auto;-webkit-overflow-scrolling:touch;border-bottom:2px solid #c4bab0}
+.nav-btn{background:none;border:none;padding:0.7rem 1.1rem;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;color:#6a6058;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.15s}
+.nav-btn:hover{color:var(--n8-navy)}
+.nav-btn.active{color:var(--n8-navy);border-bottom-color:var(--n8-orange)}
+
+.section{display:none;padding:2rem 2rem 0.5rem}
+.section.active{display:block}
+
+.sec-header{margin-bottom:2rem}
+.sec-eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--n8-blue);font-weight:600;margin-bottom:0.35rem}
+.sec-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--n8-navy);line-height:1.2}
+.sec-body{font-size:13px;color:#666;margin-top:0.5rem;max-width:500px;line-height:1.7}
+
+.divider{border:none;border-top:1px solid var(--n8-alt);margin:2rem 0}
+.sub-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--n8-navy);margin-bottom:1rem}
+
+.pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
+.pillar{background:var(--n8-white);border-radius:14px;padding:1.1rem 1.25rem;border:1px solid var(--n8-alt)}
+.pillar-dot{width:8px;height:8px;border-radius:50%;background:var(--n8-orange);margin-bottom:0.6rem}
+.pillar h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--n8-navy);margin-bottom:0.3rem}
+.pillar p{font-size:12px;color:#777;line-height:1.55}
+
+.id-card{background:var(--n8-white);border-radius:14px;border:1px solid var(--n8-alt);overflow:hidden;margin-bottom:1rem}
+.id-card-head{background:var(--n8-blue);padding:0.6rem 1rem}
+.id-card-head span{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.7)}
+.id-card-body{padding:1rem}
+.yes-list,.not-list{list-style:none;padding:0}
+.yes-list li,.not-list li{font-size:13px;padding:0.35rem 0;border-bottom:1px solid var(--n8-canvas);display:flex;align-items:center;gap:0.6rem}
+.yes-list li:last-child,.not-list li:last-child{border-bottom:none}
+.yes-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--n8-blue);flex-shrink:0}
+.not-list li{color:#999;text-decoration:line-through}
+.not-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--n8-alt);flex-shrink:0}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:0.75rem}
+.tag{font-size:11px;padding:0.3rem 0.75rem;border-radius:20px;font-weight:600}
+.tag-blue{background:#e8edfa;color:var(--n8-blue)}
+.tag-orange{background:#fff0e0;color:#b85e00}
+
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.swatch{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.08)}
+.swatch-color{height:80px}
+.swatch-info{padding:0.65rem 0.8rem;background:var(--n8-white)}
+.swatch-name{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--n8-navy);text-transform:uppercase;letter-spacing:0.04em}
+.swatch-hex{font-size:11px;color:#999;font-family:monospace;margin-top:1px}
+.swatch-role{font-size:10px;color:#bbb;margin-top:3px;line-height:1.4}
+
+.color-rule{background:var(--n8-white);border-radius:12px;border:1px solid var(--n8-alt);padding:1rem 1.25rem;margin-bottom:0.75rem;display:flex;gap:1rem;align-items:flex-start}
+.color-rule-dot{width:16px;height:16px;border-radius:4px;flex-shrink:0;margin-top:2px}
+.color-rule h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--n8-navy);margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:0.05em}
+.color-rule p{font-size:12px;color:#777;line-height:1.55}
+
+.type-card{background:var(--n8-white);border-radius:14px;border:1px solid var(--n8-alt);overflow:hidden;margin-bottom:1rem}
+.type-card-label{background:var(--n8-canvas);border-bottom:1px solid var(--n8-alt);padding:0.5rem 1rem;font-size:10px;font-family:monospace;color:#999;letter-spacing:0.04em}
+.type-card-body{padding:1.25rem}
+
+.diagram-card{background:var(--n8-white);border-radius:14px;border:1px solid var(--n8-alt);padding:1.5rem;margin-bottom:1rem}
+.diagram-eyebrow{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--n8-blue-sec);font-weight:600;margin-bottom:1rem}
+.gov-diagram{display:flex;flex-direction:column;align-items:center;gap:0}
+.gov-node{padding:0.65rem 2rem;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-align:center;min-width:200px;letter-spacing:0.04em}
+.gov-node.operator{background:var(--n8-canvas);color:var(--n8-navy);border:1px solid var(--n8-alt)}
+.gov-node.n8{background:var(--n8-blue);color:#fff}
+.gov-node.delivery{background:var(--n8-canvas);color:var(--n8-navy);border:1px solid var(--n8-alt)}
+.gov-arrow{font-size:16px;color:var(--n8-blue-sec);padding:2px 0;line-height:1}
+
+.diagram-rule{display:flex;gap:0.75rem;align-items:flex-start;padding:0.75rem 0;border-bottom:1px solid var(--n8-canvas)}
+.diagram-rule:last-child{border-bottom:none}
+.diagram-rule-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--n8-blue);min-width:20px}
+.diagram-rule-text{font-size:12px;color:#666;line-height:1.55}
+.diagram-rule-text strong{color:var(--n8-navy);font-weight:600}
+
+.never-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.5rem}
+.never-item{background:#fdf3f0;border:1px solid #f0c0a8;border-radius:8px;padding:0.6rem 0.8rem;font-size:12px;color:#a03010;display:flex;align-items:center;gap:0.4rem}
+.never-item::before{content:"×";font-weight:700;font-size:13px;flex-shrink:0}
+
+.voice-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.voice-do{background:var(--n8-white);border:1px solid #b8d4b8;border-radius:12px;padding:1rem}
+.voice-dont{background:var(--n8-white);border:1px solid #f0c0a8;border-radius:12px;padding:1rem}
+.voice-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem}
+.voice-label-do{color:#2a6a2a}
+.voice-label-dont{color:#b83010}
+.voice-text{font-size:12px;color:#444;line-height:1.6;font-style:italic}
+
+.vocab-section{background:var(--n8-navy);border-radius:14px;padding:1.25rem;margin-bottom:1rem}
+.vocab-title{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--n8-blue-sec);margin-bottom:0.75rem}
+.vocab-tags{display:flex;flex-wrap:wrap;gap:7px}
+.vocab-tag{font-size:11px;padding:0.25rem 0.65rem;border-radius:4px;font-weight:600;background:rgba(34,51,130,0.6);color:var(--n8-blue-sec)}
+.avoid-tag{background:rgba(249,133,19,0.15);color:var(--n8-orange)}
+
+.cta-demo{background:var(--n8-navy);border-radius:14px;padding:1.5rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center}
+.cta-primary{background:var(--n8-blue);color:#fff;padding:0.7rem 1.5rem;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;letter-spacing:0.03em}
+.cta-outline{background:transparent;color:#fff;padding:0.65rem 1.4rem;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;border:1.5px solid rgba(255,255,255,0.3);cursor:pointer}
+
+.card-demo{background:var(--n8-white);border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.08);padding:1.25rem;margin-bottom:0.5rem;transition:transform 0.2s;cursor:default}
+.card-demo:hover{transform:translateY(-4px)}
+.card-eyebrow{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--n8-blue-sec);font-weight:600;margin-bottom:0.4rem}
+.card-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--n8-navy);margin-bottom:0.3rem}
+.card-body{font-size:12px;color:#777;line-height:1.6}
+.card-accent{border-left:3px solid var(--n8-orange);padding-left:0.75rem}
+
+.token-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem}
+.token-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:#aaa;font-weight:700;padding:0.4rem 0.5rem;border-bottom:1px solid var(--n8-alt)}
+.token-table td{font-size:12px;padding:0.5rem;border-bottom:1px solid var(--n8-canvas);color:var(--n8-body);vertical-align:middle}
+.token-table td:first-child{font-family:monospace;color:var(--n8-blue);font-size:11px}
+
+.module-list{list-style:none;padding:0;margin-bottom:1.5rem}
+.module-list li{display:flex;align-items:flex-start;gap:0.75rem;padding:0.65rem 0;border-bottom:1px solid var(--n8-canvas)}
+.module-list li:last-child{border-bottom:none}
+.module-num{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:var(--n8-blue);min-width:20px;padding-top:1px}
+.module-name{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--n8-navy)}
+.module-desc{font-size:11px;color:#888;margin-top:1px}
+</style>
+
+<div class="wrap">
+<div class="cover">
+  <div class="cover-geo"></div><div class="cover-geo2"></div>
+  <div class="cover-eyebrow">Brand Guidelines · v1.0</div>
+  <div class="cover-title">Networks8<br>Brand System</div>
+  <div class="cover-sub">Design reference for execution-grade marketing, sales, and operator-facing materials.</div>
+  <div class="cover-rule"></div>
+</div>
+
+<nav class="nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('identity')">Identity</button>
+  <button class="nav-btn" onclick="show('color')">Color</button>
+  <button class="nav-btn" onclick="show('type')">Typography</button>
+  <button class="nav-btn" onclick="show('diagrams')">Diagrams</button>
+  <button class="nav-btn" onclick="show('voice')">Voice</button>
+  <button class="nav-btn" onclick="show('components')">Components</button>
+</nav>
+
+<!-- IDENTITY -->
+<div id="identity" class="section active">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Brand Identity</div>
+    <div class="sec-title">Category Definition</div>
+    <div class="sec-body">Networks8 is the operator-side construction execution management layer. Every visual and written asset must reinforce this positioning — not redefine it.</div>
+  </div>
+  <div class="pillar-grid">
+    <div class="pillar"><div class="pillar-dot"></div><h4>Control</h4><p>Operators retain vendor relationships, capital decisions, and rollout authority at all times.</p></div>
+    <div class="pillar"><div class="pillar-dot"></div><h4>Visibility</h4><p>Milestone clarity across vendors, markets, and reporting structures throughout the rollout.</p></div>
+    <div class="pillar"><div class="pillar-dot"></div><h4>Throughput</h4><p>Capital converts efficiently into completed infrastructure without coordination overhead.</p></div>
+    <div class="pillar"><div class="pillar-dot"></div><h4>Flexibility</h4><p>Coordination structure without fixed internal overhead or outsourced delivery control.</p></div>
+  </div>
+  <hr class="divider">
+  <div class="sub-label">What Networks8 Is</div>
+  <div class="id-card">
+    <div class="id-card-head"><span>Approved Category Descriptions</span></div>
+    <div class="id-card-body"><ul class="yes-list">
+      <li>Operator-side construction execution management layer</li>
+      <li>Execution coordination layer</li>
+      <li>Deployment governance layer</li>
+      <li>Multi-vendor rollout coordination structure</li>
+      <li>Operator-side delivery oversight</li>
+    </ul></div>
+  </div>
+  <div class="sub-label" style="margin-top:1.25rem">What Networks8 Is Not</div>
+  <div class="id-card">
+    <div class="id-card-head" style="background:#c04020"><span>Never Use These Descriptions</span></div>
+    <div class="id-card-body"><ul class="not-list">
+      <li>Consulting firm or consulting advisor</li>
+      <li>Staff augmentation or PMO staffing support</li>
+      <li>EPC or prime contractor</li>
+      <li>Engineering services provider</li>
+      <li>Software platform or SaaS product</li>
+      <li>Systems integrator</li>
+    </ul></div>
+  </div>
+  <hr class="divider">
+  <div class="sub-label">Primary Audience</div>
+  <div class="sec-body" style="margin-bottom:0.75rem">Write for infrastructure executives responsible for execution certainty, vendor coordination, milestone visibility, and capital performance.</div>
+  <div class="tag-row">
+    <span class="tag tag-blue">VP Deployment</span>
+    <span class="tag tag-blue">VP Construction</span>
+    <span class="tag tag-blue">Director OSP</span>
+    <span class="tag tag-blue">COO</span>
+    <span class="tag tag-blue">BEAD Program Directors</span>
+    <span class="tag tag-blue">Program Delivery Leaders</span>
+  </div>
+</div>
+
+<!-- COLOR -->
+<div id="color" class="section">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Color System</div>
+    <div class="sec-title">Brand Palette</div>
+    <div class="sec-body">Seven fixed tokens. Use exact hex values. Do not approximate, lighten, or substitute.</div>
+  </div>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#223382"></div><div class="swatch-info"><div class="swatch-name">Primary Blue</div><div class="swatch-hex">#223382</div><div class="swatch-role">CTAs · N8 layer · headings</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#9BACD8"></div><div class="swatch-info"><div class="swatch-name">Secondary Blue</div><div class="swatch-hex">#9BACD8</div><div class="swatch-role">Layer separators · UI support</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#111144"></div><div class="swatch-info"><div class="swatch-name">Deep Navy</div><div class="swatch-hex">#111144</div><div class="swatch-role">Hero backgrounds · dark sections</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F98513"></div><div class="swatch-info"><div class="swatch-name">Accent Orange</div><div class="swatch-hex">#F98513</div><div class="swatch-role">Operator control callouts only</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F4F1EC;border-bottom:1px solid #e0dbd2"></div><div class="swatch-info"><div class="swatch-name">Canvas</div><div class="swatch-hex">#F4F1EC</div><div class="swatch-role">Page background</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#DAD1C8"></div><div class="swatch-info"><div class="swatch-name">Alt Surface</div><div class="swatch-hex">#DAD1C8</div><div class="swatch-role">Cards · dividers</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#2D2E37"></div><div class="swatch-info"><div class="swatch-name">Body Text</div><div class="swatch-hex">#2D2E37</div><div class="swatch-role">All body copy</div></div></div>
+  </div>
+  <hr class="divider">
+  <div class="sub-label">Usage Rules</div>
+  <div class="color-rule"><div class="color-rule-dot" style="background:#F98513"></div><div><h4>Accent Orange — Restricted</h4><p>Reserved for operator control retention statements and coordination advantage callouts only. Never use for section headers, decorative highlights, or general emphasis.</p></div></div>
+  <div class="color-rule"><div class="color-rule-dot" style="background:#223382"></div><div><h4>Primary Blue — Authority Anchor</h4><p>The Networks8 node is always Primary Blue in governance diagrams. CTA backgrounds use Primary Blue exclusively.</p></div></div>
+  <div class="color-rule"><div class="color-rule-dot" style="background:#111144"></div><div><h4>Deep Navy — Hero and Dark Sections</h4><p>Use for full-bleed backgrounds, cover panels, and CTA bands. White or Secondary Blue text only on Deep Navy surfaces.</p></div></div>
+  <div class="color-rule"><div class="color-rule-dot" style="background:#F4F1EC;border:1px solid #ccc"></div><div><h4>No Decorative Gradients</h4><p>Avoid gradients unless reinforcing structural hierarchy. Canvas is the base page surface — not white.</p></div></div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div id="type" class="section">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Typography</div>
+    <div class="sec-title">Type System</div>
+    <div class="sec-body">Two typefaces only. Montserrat for headlines and labels. Open Sans for all body copy. No substitutions.</div>
+  </div>
+  <div class="type-card"><div class="type-card-label">Montserrat SemiBold · Display headline · 28px</div><div class="type-card-body"><span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:26px;color:var(--n8-navy);line-height:1.2">Construction execution<br>across vendors and markets.</span></div></div>
+  <div class="type-card"><div class="type-card-label">Montserrat SemiBold · Section heading · 18px</div><div class="type-card-body"><span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;color:var(--n8-navy)">Operator-Side Governance Layer</span></div></div>
+  <div class="type-card"><div class="type-card-label">Open Sans Regular · Body copy · 14px</div><div class="type-card-body"><span style="font-size:14px;color:var(--n8-body);line-height:1.7">When deployments scale across markets, vendor schedules begin to diverge from the capital plan. Networks8 coordinates execution across the delivery ecosystem while operators retain full schedule and rollout authority.</span></div></div>
+  <div class="type-card"><div class="type-card-label">Open Sans · Eyebrow label · 10px · uppercase · tracked</div><div class="type-card-body"><span style="font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--n8-blue-sec)">Execution Coordination</span></div></div>
+  <div class="type-card"><div class="type-card-label">Montserrat + Orange rule · Section opener</div><div class="type-card-body"><div style="width:32px;height:3px;background:var(--n8-orange);border-radius:2px;margin-bottom:0.6rem"></div><span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--n8-navy)">Milestone clarity. Vendor accountability. Capital confidence.</span></div></div>
+  <hr class="divider">
+  <div class="sub-label">Writing Rules</div>
+  <div class="diagram-card" style="padding:1rem 1.25rem">
+    <div class="diagram-rule"><div class="diagram-rule-num">01</div><div class="diagram-rule-text"><strong>Sentence case everywhere.</strong> Headlines, labels, diagram nodes. Title case for formal proper nouns only.</div></div>
+    <div class="diagram-rule"><div class="diagram-rule-num">02</div><div class="diagram-rule-text"><strong>Headline register.</strong> Write like operator documentation — not campaign copy. Describe execution scenarios, not marketing promises.</div></div>
+    <div class="diagram-rule"><div class="diagram-rule-num">03</div><div class="diagram-rule-text"><strong>Body paragraphs under 40 words.</strong> Infrastructure executives read in dense environments. Lead with consequence, not context.</div></div>
+    <div class="diagram-rule"><div class="diagram-rule-num">04</div><div class="diagram-rule-text"><strong>No transformation language.</strong> Avoid: transform, unlock, disrupt, end-to-end, synergies, value-add.</div></div>
+  </div>
+</div>
+
+<!-- DIAGRAMS -->
+<div id="diagrams" class="section">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Diagram Language</div>
+    <div class="sec-title">Governance Layer</div>
+    <div class="sec-body">The primary signature diagram. Always vertical. Networks8 highlighted in Primary Blue. Operator Leadership at top — never subordinate.</div>
+  </div>
+  <div class="diagram-card">
+    <div class="diagram-eyebrow">Governance Layer — Signature Diagram</div>
+    <div class="gov-diagram">
+      <div class="gov-node operator">Operator Leadership</div>
+      <div class="gov-arrow">↓</div>
+      <div class="gov-node n8">Networks8</div>
+      <div class="gov-arrow">↓</div>
+      <div class="gov-node delivery">Delivery Ecosystem</div>
+    </div>
+  </div>
+  <div class="diagram-card" style="padding:1rem 1.25rem">
+    <div class="diagram-rule"><div class="diagram-rule-num">↕</div><div class="diagram-rule-text"><strong>Always vertical.</strong> Never horizontal. Vertical hierarchy preserves operator authority at the top.</div></div>
+    <div class="diagram-rule"><div class="diagram-rule-num">●</div><div class="diagram-rule-text"><strong>Networks8 is always Primary Blue.</strong> Operator and Delivery nodes use neutral tones. Never reverse this hierarchy.</div></div>
+    <div class="diagram-rule"><div class="diagram-rule-num">≥</div><div class="diagram-rule-text"><strong>Ecosystem is always plural.</strong> Label the bottom "Delivery Ecosystem" — not a single vendor or team.</div></div>
+  </div>
+  <hr class="divider">
+  <div class="sub-label">Approved Diagram Types</div>
+  <ul class="module-list">
+    <li><div class="module-num">01</div><div><div class="module-name">Execution Gap Diagram</div><div class="module-desc">Divergence between capital approval and field reality. Thought leadership, problem framing, conference presentations.</div></div></li>
+    <li><div class="module-num">02</div><div><div class="module-name">Three-Model Comparison</div><div class="module-desc">Internal PMO | Networks8 | Turnkey EPC. Networks8 always center, elevated. Homepage and sales decks.</div></div></li>
+    <li><div class="module-num">03</div><div><div class="module-name">Vendor Ecosystem Map</div><div class="module-desc">Grid format: engineering, construction, suppliers, ROW, permitting, inspection, logistics, finance. Never radial.</div></div></li>
+    <li><div class="module-num">04</div><div><div class="module-name">Deployment Lifecycle Overlay</div><div class="module-desc">Networks8 spans all execution phases from funding through multi-market expansion.</div></div></li>
+    <li><div class="module-num">05</div><div><div class="module-name">Operator Control Retention</div><div class="module-desc">Two columns: what operators retain / what Networks8 provides. Comparison sections and sales collateral.</div></div></li>
+  </ul>
+  <hr class="divider">
+  <div class="sub-label">Never Use</div>
+  <div class="never-grid">
+    <div class="never-item">Fiber cable imagery</div>
+    <div class="never-item">City skylines</div>
+    <div class="never-item">Crew photography</div>
+    <div class="never-item">Dashboard visuals</div>
+    <div class="never-item">Abstract telecom icons</div>
+    <div class="never-item">Radial icon clouds</div>
+    <div class="never-item">Decorative vendor logos</div>
+    <div class="never-item">Satellite imagery</div>
+  </div>
+</div>
+
+<!-- VOICE -->
+<div id="voice" class="section">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Voice &amp; Tone</div>
+    <div class="sec-title">Writing Posture</div>
+    <div class="sec-body">Write like an operator-side execution partner. Structured, calm, precise, and credible. Not a consulting advisor. Not a SaaS product.</div>
+  </div>
+  <div class="voice-compare"><div class="voice-do"><div class="voice-label voice-label-do">✓ Say this</div><p class="voice-text">"Networks8 sits between operator leadership and the delivery ecosystem."</p></div><div class="voice-dont"><div class="voice-label voice-label-dont">× Not this</div><p class="voice-text">"Networks8 supports your deployment team."</p></div></div>
+  <div class="voice-compare"><div class="voice-do"><div class="voice-label voice-label-do">✓ Say this</div><p class="voice-text">"Networks8 coordinates execution across vendors and markets."</p></div><div class="voice-dont"><div class="voice-label voice-label-dont">× Not this</div><p class="voice-text">"Networks8 helps manage projects."</p></div></div>
+  <div class="voice-compare"><div class="voice-do"><div class="voice-label voice-label-do">✓ Say this</div><p class="voice-text">"Internal PMO expansion adds fixed overhead and slows ramp time."</p></div><div class="voice-dont"><div class="voice-label voice-label-dont">× Not this</div><p class="voice-text">"Internal teams cannot scale effectively."</p></div></div>
+  <div class="voice-compare"><div class="voice-do"><div class="voice-label voice-label-do">✓ Say this</div><p class="voice-text">"Turnkey delivery transfers execution visibility away from operators."</p></div><div class="voice-dont"><div class="voice-label voice-label-dont">× Not this</div><p class="voice-text">"Turnkey delivery is inefficient."</p></div></div>
+  <hr class="divider">
+  <div class="vocab-section">
+    <div class="vocab-title">Use These Terms</div>
+    <div class="vocab-tags">
+      <span class="vocab-tag">milestone clarity</span><span class="vocab-tag">execution visibility</span><span class="vocab-tag">schedule confidence</span><span class="vocab-tag">vendor accountability</span><span class="vocab-tag">reporting normalization</span><span class="vocab-tag">deployment alignment</span><span class="vocab-tag">coordination layer</span><span class="vocab-tag">governance structure</span><span class="vocab-tag">delivery structure</span><span class="vocab-tag">oversight framework</span><span class="vocab-tag">execution alignment</span>
+    </div>
+  </div>
+  <div class="vocab-section" style="background:#2a1a08;margin-top:0.75rem">
+    <div class="vocab-title" style="color:rgba(249,133,19,0.6)">Avoid These Terms</div>
+    <div class="vocab-tags">
+      <span class="vocab-tag avoid-tag">analytics platform</span><span class="vocab-tag avoid-tag">tracking software</span><span class="vocab-tag avoid-tag">transformation</span><span class="vocab-tag avoid-tag">unlock</span><span class="vocab-tag avoid-tag">disrupt</span><span class="vocab-tag avoid-tag">end-to-end solutions</span><span class="vocab-tag avoid-tag">synergies</span><span class="vocab-tag avoid-tag">support layer</span><span class="vocab-tag avoid-tag">project helpers</span><span class="vocab-tag avoid-tag">optimization journey</span><span class="vocab-tag avoid-tag">digital enablement</span><span class="vocab-tag avoid-tag">stakeholders</span>
+    </div>
+  </div>
+  <hr class="divider">
+  <div class="sub-label">Engagement Triggers</div>
+  <div class="sec-body" style="margin-bottom:0.75rem">Use operational triggers. Never emotional framing like "when operators need help."</div>
+  <div class="tag-row">
+    <span class="tag tag-blue">Construction launching across multiple markets</span>
+    <span class="tag tag-blue">Vendor schedules slipping</span>
+    <span class="tag tag-blue">Milestone reporting inconsistent</span>
+    <span class="tag tag-blue">Internal coordination stretched</span>
+    <span class="tag tag-blue">BEAD timelines tightening</span>
+  </div>
+</div>
+
+<!-- COMPONENTS -->
+<div id="components" class="section">
+  <div class="sec-header">
+    <div class="sec-eyebrow">UI Components</div>
+    <div class="sec-title">Design Tokens &amp; Modules</div>
+    <div class="sec-body">All component styling derives from brand tokens. Do not introduce custom values.</div>
+  </div>
+  <div class="sub-label">CTA Buttons</div>
+  <div class="cta-demo">
+    <button class="cta-primary">Talk to the Team</button>
+    <button class="cta-outline">Learn More</button>
+  </div>
+  <div class="sec-body" style="margin-bottom:1.5rem">Primary CTA label is always "Talk to the Team." Avoid "sign up," "get started," or commitment-heavy language.</div>
+  <div class="sub-label">Cards</div>
+  <div class="card-demo" style="max-width:340px"><div class="card-eyebrow">Multi-Market Rollout</div><div class="card-title">Execution coordination at scale</div><div class="card-body">Networks8 aligns delivery across vendors and markets while operators retain full schedule authority.</div></div>
+  <div class="card-demo card-accent" style="max-width:340px;margin-top:0.5rem"><div class="card-eyebrow">Operator Advantage</div><div class="card-title">Operators retain full rollout control</div><div class="card-body">Vendor relationships, capital decisions, and schedule authority remain with operator leadership throughout.</div></div>
+  <div style="margin-bottom:1.5rem"></div>
+  <div class="sub-label">Token Values</div>
+  <table class="token-table">
+    <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+    <tr><td>CARD_RADIUS</td><td>14px</td><td>All card containers</td></tr>
+    <tr><td>CTA_RADIUS</td><td>8px</td><td>Primary and secondary CTAs</td></tr>
+    <tr><td>CARD_SHADOW</td><td>0 6px 18px rgba(0,0,0,0.08)</td><td>Elevated card surfaces</td></tr>
+    <tr><td>CARD_HOVER</td><td>translateY(-4px)</td><td>Card hover state</td></tr>
+  </table>
+  <div class="sub-label">Layout Modules — Approved Sequence</div>
+  <ul class="module-list">
+    <li><div class="module-num">01</div><div><div class="module-name">Hero</div><div class="module-desc">Execution scenario statement + primary CTA. Deep Navy background.</div></div></li>
+    <li><div class="module-num">02</div><div><div class="module-name">Governance Layer Diagram</div><div class="module-desc">Primary positioning visual. Every major page includes this.</div></div></li>
+    <li><div class="module-num">03</div><div><div class="module-name">Three-Model Comparison Block</div><div class="module-desc">Internal PMO / Networks8 / Turnkey EPC. Networks8 elevated center.</div></div></li>
+    <li><div class="module-num">04</div><div><div class="module-name">Execution Alignment Grid</div><div class="module-desc">Vendor ecosystem surface area. Grid format, no icon clouds.</div></div></li>
+    <li><div class="module-num">05</div><div><div class="module-name">Operator Advantage Stack</div><div class="module-desc">Retained authority callouts. Orange accent on control statements.</div></div></li>
+    <li><div class="module-num">06</div><div><div class="module-name">Engagement Timing Section</div><div class="module-desc">Operational trigger list. Never emotional framing.</div></div></li>
+    <li><div class="module-num">07</div><div><div class="module-name">CTA Band</div><div class="module-desc">Full-width Deep Navy. "Talk to the Team" as the sole primary action.</div></div></li>
+  </ul>
+</div>
+
+</div>
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const labels=['identity','color','type','diagrams','voice','components'];
+  const idx=labels.indexOf(id);
+  if(idx>=0) document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+}
+</script>
